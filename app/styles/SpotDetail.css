@@ -1,0 +1,209 @@
+.spotItem {
+  display: flex;    
+  flex-direction: row;     
+  justify-content: space-between;                
+  border-radius: 10px;
+  background-color: #000000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.spotInfo {
+  flex: 1;  
+  max-height: 450px;
+  overflow: auto;
+  padding: 15px;
+  padding-top: 0px;
+}
+
+.spotInfo.vertical p {
+  margin: 3px 0;
+  color: rgba(255, 255, 255, 0.813);  
+  font-size: 1rem;     
+}
+
+.spotImageWrapper {
+  flex-shrink: 1;  
+  padding: 15px;
+}
+
+.spotImage2 {
+  min-width: 200px;
+  width: 450px;    
+  height: auto;    
+  max-height: 230px;    
+  display: block;
+  border: 8px solid rgb(127, 14, 14);
+}
+
+.addReviews {
+  color: rgba(255, 255, 255, 0.813);
+  font-size: 1.1rem;
+  border: 4px solid rgba(192, 192, 192, 0.813);
+  border-radius: 10px;
+  padding: 4px;
+}
+
+.addReviews:hover {
+  background-color: rgb(75, 75, 75);
+  cursor: pointer;
+}
+
+.infoToggle {
+  color: rgba(255, 255, 255, 0.813);
+  font-size: 1.1rem;
+}
+
+.reviewsContainer {
+  margin-top: 8px;
+}
+
+.reviewItem {
+  margin-bottom: 6px;
+  padding: 4px;
+  border-left: 3px solid rgb(194, 18, 18);
+  background-color: #1a1a1a;
+  border-radius: 4px;
+}
+
+.verticalModal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+}
+
+.spotInfo.vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+}
+
+.spotImageWrapper.verticalImage {
+  display: flex;
+  justify-content: flex-start; 
+}
+
+.modalOverlay2 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 0;
+  margin: 0;
+  width: 400px;
+  height: auto;
+  background: none;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.modalContent {
+  padding: 4px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  overflow-y: auto;
+  pointer-events: auto;
+}
+
+.closeButton {
+  line-height: 1;
+}
+
+.deleteWrapper {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.deleteButton {
+  background-color: #c62828;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.deleteButton:hover {
+  background-color: #b71c1c;
+}
+
+.confirmDelete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.confirmDelete p {
+  margin: 0;
+  font-weight: bold;
+  color: #c62828;
+}
+
+.confirmButton {
+  background-color: #c62828;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.confirmButton:hover {
+  background-color: #b71c1c;
+}
+
+.cancelButton {
+  background-color: #777;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.cancelButton:hover {
+  background-color: #555;
+}
+
+.deleteItem2 {
+  color: rgb(169, 0, 0);
+  font-size: 1.3rem;
+  margin-left: 13px;
+}
+
+.deleteItem2:hover {
+  color: rgb(232, 0, 0);
+  cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+  .spotItem {
+    flex-direction: column;  
+  }
+
+  .spotInfo {
+    flex: 1;
+  }
+
+  .modalOverlay2 {
+    width: 250px;
+  }
+
+  .modalContent {
+    max-height: 250px;
+  }
+
+  .spotImage2 {    
+    max-height: 0px;    
+    border: 0;
+  }
+}

@@ -1,0 +1,83 @@
+.error-container {
+  height: 100vh;
+  width: 100%;
+  background: radial-gradient(circle at top left, #3a0000, #0d0000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.error-box {
+  background-color: rgba(64, 0, 0, 0.7);
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 25px rgba(255, 50, 50, 0.2);
+  max-width: 500px;
+}
+
+.error-icon {
+  background-color: #400000;
+  width: 110px;
+  height: 110px;
+  border-radius: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px auto;
+}
+
+.error-emoji {
+  font-size: 4rem;
+  transform: translateY(-10%);
+}
+
+
+.error-title {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.error-subtitle {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+.error-button {
+  display: inline-block;
+  background: linear-gradient(to right, #b00000, #ff3c00);
+  padding: 12px 28px;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.error-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 12px #b00000;
+}
+
+.bg-emoji {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.3;
+  animation: float 6s infinite;
+}
+
+.bg1 { top: 10%; left: 5%; animation-delay: 0s; }
+.bg2 { top: 20%; right: 10%; animation-delay: 1s; }
+.bg3 { bottom: 15%; left: 20%; animation-delay: 2s; }
+.bg4 { bottom: 10%; right: 5%; animation-delay: 3s; }
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
