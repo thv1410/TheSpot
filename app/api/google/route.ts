@@ -25,6 +25,7 @@ export async function GET(request: Request) {
     const geoData = await geoRes.json();
 
     if (!geoData.results.length) {
+      console.log(geoData);
       return NextResponse.json({ error: "Address not found" }, { status: 404 });
     }
 

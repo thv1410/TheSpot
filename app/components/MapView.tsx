@@ -6,7 +6,7 @@ import "../styles/MapView.css";
 interface Spot {
   _id: string;
   name: string;
-  location?: { lat: number; lng: number }; 
+  location?: { lat: number; lng: number };
   vibes?: string[];
 }
 
@@ -52,7 +52,7 @@ export default function MapView({ spots = [], onSelectSpot }: MapViewProps) {
   const [overlayVisible, setOverlayVisible] = useState(true);
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: 'AIzaSyBf0ChenwYIIgclFwtNJJ_A9a-TL8thnlo',
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!,
     libraries: LIBRARIES,
   });
 
@@ -84,7 +84,7 @@ export default function MapView({ spots = [], onSelectSpot }: MapViewProps) {
     map.markers = [];
 
     spots.forEach((spot) => {
-      if (!spot.location) return; 
+      if (!spot.location) return;
 
       const vibe = spot.vibes?.[0];
       const iconUrl = vibe ? vibeIconMap[vibe] : undefined;
