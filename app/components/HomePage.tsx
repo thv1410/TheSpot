@@ -228,7 +228,6 @@ export default function HomePage() {
               width={50}
               height={50}
               className="profilePic"
-              unoptimized
             />
           </button>
           <p>{user?.email || "Guest"}</p>

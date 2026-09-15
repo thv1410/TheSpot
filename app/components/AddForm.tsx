@@ -203,7 +203,6 @@ function AddForm({ isOpen, onClose, onSubmit, user }: AddFormProps) {
               width={200}
               height={200}
               className="imagePreview"
-              unoptimized
             />
           )}
 

@@ -1,3 +1,4 @@
+// next.config.ts
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
@@ -6,12 +7,10 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "maps.googleapis.com",
-        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "*.googleusercontent.com",
-        pathname: "/**",
       },
     ],
   },

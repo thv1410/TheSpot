@@ -128,7 +128,6 @@ export default function SpotList({
                 height={200}
                 className="spotImage"
                 loading="eager"
-                unoptimized
               />
             </div>
 
