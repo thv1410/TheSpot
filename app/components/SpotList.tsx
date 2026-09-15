@@ -88,7 +88,7 @@ export default function SpotList({
                     <p id="hours">
                       {(spot.hours ?? []).map((dayHour: string, idx: number) => (
                         <span key={dayHour + idx}>
-                          {dayHour}<br/>
+                          {dayHour}<br />
                         </span>
                       ))}
                     </p>
@@ -99,7 +99,7 @@ export default function SpotList({
               <p><strong>Type:</strong> {(spot.type ?? []).join(", ")}</p>
               <p><strong>Vibes:</strong> {(spot.vibes ?? []).join(", ")}</p>
               <p><strong>Rating:</strong> {spot.rating}</p>
-              
+
               <button className='addReviews' onClick={() => setReviewPopupOpenFor(spot._id)}>Add Review</button>
               <br />
               {(spot.reviews ?? []).length > 0 && (
@@ -128,6 +128,7 @@ export default function SpotList({
                 height={200}
                 className="spotImage"
                 loading="eager"
+                unoptimized
               />
             </div>
 

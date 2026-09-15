@@ -127,6 +127,7 @@ export default function SpotDetails({
             width={300}
             height={200}
             className="spotImage2"
+            unoptimized
           />
         </Card>
 
