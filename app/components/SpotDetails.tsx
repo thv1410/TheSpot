@@ -6,6 +6,28 @@ import Card from "./Card";
 import AddReviewPopup from "./AddReview";
 import "../styles/SpotDetail.css";
 
+const getOptimizedSpotImage = (imageSrc?: string) => {
+  if (!imageSrc) return "/backupPic.png";
+
+  if (imageSrc.includes("maps.googleapis.com")) {
+    try {
+      const url = new URL(imageSrc);
+      const photoRef = url.searchParams.get("photoreference");
+      if (photoRef) {
+        return `/api/place-photo?photoreference=${photoRef}&maxwidth=400`;
+      }
+    } catch {
+      // Fall through if URL parsing fails
+    }
+  }
+
+  if (!imageSrc.startsWith("http") && !imageSrc.startsWith("/") && imageSrc.length > 50) {
+    return `/api/place-photo?photoreference=${imageSrc}&maxwidth=400`;
+  }
+
+  return imageSrc;
+};
+
 export default function SpotDetails({
   spot,
   onClose,
@@ -62,6 +84,10 @@ export default function SpotDetails({
       setDeleteModalOpenFor(null);
     }
   };
+
+  const imageSrc = spot.place_id
+    ? `/api/place-photo?placeId=${spot.place_id}&maxwidth=400`
+    : getOptimizedSpotImage(spot.image);
 
   return (
     <div className="modalOverlay2">
@@ -122,11 +148,12 @@ export default function SpotDetails({
 
         <Card className="spotImageWrapper verticalImage">
           <Image
-            src={spot.image || "/backupPic.png"}
+            src={imageSrc}
             alt={spot.name || "Study spot image"}
             width={300}
             height={200}
             className="spotImage2"
+            unoptimized
           />
         </Card>
 

@@ -1,7 +1,32 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import AddReviewPopup from "./AddReview";
-import '../styles/SpotList.css'
+import "../styles/SpotList.css";
+
+// Helper function to resolve the image URL via the API proxy
+const getOptimizedSpotImage = (imageSrc?: string) => {
+  if (!imageSrc) return "/backupPic.png";
+
+  // If it's a full Google Maps photo URL, extract the reference parameter
+  if (imageSrc.includes("maps.googleapis.com")) {
+    try {
+      const url = new URL(imageSrc);
+      const photoRef = url.searchParams.get("photoreference");
+      if (photoRef) {
+        return `/api/place-photo?photoreference=${photoRef}&maxwidth=400`;
+      }
+    } catch {
+      // Fall through if URL parsing fails
+    }
+  }
+
+  // If it's a raw Google photoreference string
+  if (!imageSrc.startsWith("http") && !imageSrc.startsWith("/") && imageSrc.length > 50) {
+    return `/api/place-photo?photoreference=${imageSrc}&maxwidth=400`;
+  }
+
+  return imageSrc;
+};
 
 export default function SpotList({
   spots,
@@ -60,7 +85,7 @@ export default function SpotList({
           <div key={spot._id || spot.place_id} className="spotItem">
             <div className="spotInfo">
               <button
-                className='deleteItem'
+                className="deleteItem"
                 onClick={() => setDeleteModalOpenFor(spot._id)}
               >
                 ✖
@@ -69,15 +94,21 @@ export default function SpotList({
               {deleteModalOpenFor === spot._id && (
                 <div className="deleteModalOverlay">
                   <div className="deleteModal">
-                    <p>Are you sure you want to delete <strong>{spot.name}</strong>?</p>
+                    <p>
+                      Are you sure you want to delete <strong>{spot.name}</strong>?
+                    </p>
                     <button onClick={() => handleDelete(spot._id)}>Yes, Delete</button>
                     <button onClick={() => setDeleteModalOpenFor(null)}>Cancel</button>
                   </div>
                 </div>
               )}
 
-              <p><strong>Name:</strong> {spot.name}</p>
-              <p><strong>Address:</strong> {spot.address}</p>
+              <p>
+                <strong>Name:</strong> {spot.name}
+              </p>
+              <p>
+                <strong>Address:</strong> {spot.address}
+              </p>
 
               {(spot.hours ?? []).length > 0 && (
                 <>
@@ -88,7 +119,8 @@ export default function SpotList({
                     <p id="hours">
                       {(spot.hours ?? []).map((dayHour: string, idx: number) => (
                         <span key={dayHour + idx}>
-                          {dayHour}<br />
+                          {dayHour}
+                          <br />
                         </span>
                       ))}
                     </p>
@@ -96,11 +128,22 @@ export default function SpotList({
                 </>
               )}
 
-              <p><strong>Type:</strong> {(spot.type ?? []).join(", ")}</p>
-              <p><strong>Vibes:</strong> {(spot.vibes ?? []).join(", ")}</p>
-              <p><strong>Rating:</strong> {spot.rating}</p>
+              <p>
+                <strong>Type:</strong> {(spot.type ?? []).join(", ")}
+              </p>
+              <p>
+                <strong>Vibes:</strong> {(spot.vibes ?? []).join(", ")}
+              </p>
+              <p>
+                <strong>Rating:</strong> {spot.rating}
+              </p>
 
-              <button className='addReviews' onClick={() => setReviewPopupOpenFor(spot._id)}>Add Review</button>
+              <button
+                className="addReviews"
+                onClick={() => setReviewPopupOpenFor(spot._id)}
+              >
+                Add Review
+              </button>
               <br />
               {(spot.reviews ?? []).length > 0 && (
                 <button className="infoToggle" onClick={toggleReviews}>
@@ -112,7 +155,9 @@ export default function SpotList({
                 <div className="reviewsContainer">
                   {(spot.reviews ?? []).map((r: any, idx: number) => (
                     <div key={idx} className="reviewItem">
-                      <p><strong>{r.author_name}</strong> - {r.rating}⭐</p>
+                      <p>
+                        <strong>{r.author_name}</strong> - {r.rating}⭐
+                      </p>
                       <p>{r.text}</p>
                     </div>
                   ))}
@@ -122,12 +167,17 @@ export default function SpotList({
 
             <div className="spotImageWrapper">
               <Image
-                src={spot.image || "/backupPic.png"}
+                src={
+                  spot.place_id
+                    ? `/api/place-photo?placeId=${spot.place_id}&maxwidth=400`
+                    : getOptimizedSpotImage(spot.image)
+                }
                 alt={spot.name}
                 width={300}
                 height={200}
                 className="spotImage"
                 loading="eager"
+                unoptimized
               />
             </div>
 
