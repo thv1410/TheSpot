@@ -16,7 +16,7 @@ near UGA campus.
 | Member Name      | GitHub Username | Role                 |
 | ---------------- | --------------- | -------------------- |
 | Ryan Varghese    | RV37765         | Project Leader       |
-| Tri Vo           | MASTERBUNN      | Project Manager      |
+| Tri Vo           | thv1410         | Project Manager      |
 | Pritam Patel     | pvp24726        | Communication Leader |
 | Million Yohannes | m-yguy          | GitHub Captain       |
 
