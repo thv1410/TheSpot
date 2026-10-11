@@ -16,8 +16,6 @@ Upload image to `/images/` and link it below:
 
 ## Progress Summary - **Week #1:** Monday, Oct 27 - Sunday, Nov 2
 
-I didn't see the weekly status file, so I mistakenly made my own for this week...
-
 ** What we completed this week:**
 
 - We finished our mockup for the web design in Figma.

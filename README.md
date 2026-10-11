@@ -126,7 +126,3 @@ Other accomplishment are using external API and somehow get it working after num
 the usage of Github as merge conflict are common and the git output is a massive wall of text, so one know what going on and 
 there other weird git quirks that really screw up everyone, but git problems are just inevitable for group project. A future
 direction would be to add more pages to the app like a setting page would be nice. 
-
-## Acknowledgements
-
-- kudos to ....
