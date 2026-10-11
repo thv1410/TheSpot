@@ -1,13 +1,8 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/UW3sqoI_)
-
-# Project Name - TheSpot
+# TheSpot
 
 ## Overview
-
-This repository represents the culminating project for CSCI 4300 – Web Programming at UGA.  
-Our team collaboratively designed, developed, and deployed this full-stack web application using React + Next.js, Node.js and MongoDB.
-Our project is option 2: 2 Athens Coffeehouse & Study Spot Finder. We made a website that allow user to view epic study spots
-near UGA campus.
+ 
+TheSpot is a full-stack web application that allows students to discover, evaluate, and bookmark optimal study environments and coffeehouses near campus.
 
 ---
 
@@ -22,14 +17,20 @@ near UGA campus.
 
 ---
 
+## Demo Walkthrough
+
+📺 [Watch the Video Demonstration on YouTube](https://youtu.be/9iP0pAL5RZo)
+
+---
+
 ## Project Features
 
-- Authentication & Authorization\*\* (login/sign-up, protected routes)
-- Middleware or Route Protection\*\* for authenticated users
-- CRUD operations\*\* using MongoDB database and Google Maps API
-- Responsive UI\*\* & dynamic navigation bar
-- View Study Spots\*\* by browsing a list or map of study spots.
-- Google Places Integration\*\* by fetching info from nearby study spots.
+- **Authentication & Authorization:** Login/sign-up and protected routes
+- **Middleware & Route Protection:** Secures dashboard and user settings for authenticated sessions
+- **CRUD Operations:** Manage study spot listings and reviews using MongoDB
+- **Responsive UI:** Dynamic navigation and mobile-friendly layouts
+- **Location Discovery:** Browse study spots by map view or categorized list
+- **Google Places Integration:** Fetches real-time venue hours, coordinates, and details
 
 ---
 
@@ -43,7 +44,6 @@ near UGA campus.
 /models → Mongoose schemas / MongoDB models
 /public → Static assets (images etc.)
 /design → mockups.md
-/status → WEEKLY_STATUS.md
 /styles -> css files
 /config -> MongoDB connection
 ```
@@ -115,14 +115,16 @@ Model: Location
 | `/login` | User login  |
 | `/home`  | HomePage    |
 
-## Future Improvements
+## Engineering Highlights & Lessons Learned
 
-- We would like to add a profile page to view all your favorite spots.
+### Key Accomplishments
+- **Database Architecture with MongoDB:** Designed and integrated Mongoose schemas to handle dynamic location data, user reviews, and geospatial coordinates within Next.js API routes.
+- **Third-Party API Integration:** Connected and synchronized the Google Places API to populate venue details, operational hours, and precise map coordinates alongside our internal database records.
 
-## Narrative of accomplishments, challenges, obstacles overcome, and any future direction with the project
+### Technical Challenges & Solutions
+- **External API Data Normalization:** Resolved data inconsistency issues and rate limits when integrating third-party map services by structuring resilient fallback schemas and parsing logic for incoming venue payloads.
+- **Team Git Workflow & Conflict Resolution:** Overcame complex multi-branch merge conflicts across shared frontend components and API endpoints by enforcing feature-branch workflows, synchronized pulling, and code review prior to merging into `main`.
 
-- We accomplish many things over this project like learning how to use mongoDB and integrating it with our project. 
-Other accomplishment are using external API and somehow get it working after numerous headache with Google. An obstace would be
-the usage of Github as merge conflict are common and the git output is a massive wall of text, so one know what going on and 
-there other weird git quirks that really screw up everyone, but git problems are just inevitable for group project. A future
-direction would be to add more pages to the app like a setting page would be nice. 
+### Future Roadmap
+- **User Profiles & Bookmarks:** Implement dedicated user dashboards to save favorite study spots, manage personal review histories, and configure custom notification settings.
+- **Advanced Filtering:** Add dynamic filters for ambient noise levels, outlet availability, and real-time crowd metrics.
